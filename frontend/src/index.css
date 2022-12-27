@@ -18,6 +18,14 @@
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  @apply bg-primary w-1
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary rounded-full
+}
+
 .text-gradient {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
