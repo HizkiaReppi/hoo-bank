@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-scroll'
 import { close, logo, menu } from '../assets'
 import { navLinks } from '../constants'
 
@@ -6,18 +7,18 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <nav className='w-full flex py-6 justify-between items-center navbar'>
+    <nav className='w-full flex py-6 justify-between items-center'>
       <img src={logo} alt="HooBank" className='w-[124px] h-[32px]' />
 
       <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] text-white ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
+            className={`font-poppins font-normal cursor-pointer text-[16px] text-white hover:text-secondary ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
           >
-            <a href={`#${nav.id}`}>
+            <Link to={nav.id} smooth={true} duration={500}>
               {nav.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -38,18 +39,18 @@ const Navbar = () => {
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-normal cursor-pointer text-[16px] text-white ${index === navLinks.length - 1 ? 'mr-b' : 'mb-10'}`}
+                className={`font-poppins font-normal cursor-pointer text-[16px] text-white hover:text-secondary ${index === navLinks.length - 1 ? 'mr-b' : 'mb-10'}`}
               >
-                <a href={`#${nav.id}`}>
+                <Link to={nav.id} smooth={true} duration={500}>
                   {nav.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
       </div>
-    </nav>
+    </nav >
   )
 }
 
